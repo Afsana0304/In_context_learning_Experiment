@@ -1,5 +1,5 @@
 ------------------- code setup :rocket:-----------------------------
-1. Code for experimenting with hugging face data : code/new_data_experiment.py //
+1. Code for experimenting with hugging face data : code/new_data_experiment.py /n
 2. Code for experimenting with new synthetic generated data : code/more_test_example.py //
 3. Code for experimenting with hugging face data but only 1 example: code/memory_eff_backup.py//
 
