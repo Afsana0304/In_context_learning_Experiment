@@ -1,13 +1,13 @@
 ------------------- code setup :rocket:-----------------------------
-1. Code for experimenting with hugging face data : code/new_data_experiment.py
-2. Code for experimenting with new synthetic generated data : code/more_test_example.py
-3. Code for experimenting with hugging face data but only 1 example: code/memory_eff_backup.py
+1. Code for experimenting with hugging face data : code/new_data_experiment.py //
+2. Code for experimenting with new synthetic generated data : code/more_test_example.py //
+3. Code for experimenting with hugging face data but only 1 example: code/memory_eff_backup.py//
 
 
 -------------------------- plots :rocket:-------------------------
-1. The result for the experimenting with hugging faces 300 data is available on: new_sbatch_plots 
+1. The result for the experimenting with hugging faces 300 data is available on: new_sbatch_plots //
 
-(epoch_i_precision_scores.png = for i incontext example how the rouge score precision is changing for the 300 test data(from hugging face)
+(epoch_i_precision_scores.png = for i incontext example how the rouge score precision is changing for the 300 test data(from hugging face) //
 (average rouge_scores vs the number of examples.png = Our final result :star: After increasing the number of incontext example how the average rouge precesion score of the 300 test data is chnaging)
 
 ------------------------ slurm file :rocket: ----------------------
