@@ -2,6 +2,7 @@
 1. Code for experimenting with hugging face data : code/new_data_experiment.py
 2. Code for experimenting with new synthetic generated data : code/more_test_example.py 
 3. Code for experimenting with hugging face data but only 1 example: code/memory_eff_backup.py
+4. In the cloud setup the model and the weights were downloaded and they were being used from the chache dir.
 
 
 -------------------------- plots :rocket:-------------------------
