@@ -8,6 +8,7 @@ from torch.cuda.amp import autocast
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import csv
 
 # salloc -A demelo -p sorcery --gpus=1 --mem=80G 
 #salloc -A demelo -p sorcery --gres=gpu:a100:1 --mem=80G (gx01)
@@ -63,8 +64,6 @@ def generate_summary(train_input, test_input):
     ---
     Summary: 
     """
-
-    print(f"Prompt for text summarization:\n{prompt}")
     
     # Tokenize input
     #inputs = tokenizer(prompt, return_tensors="pt",  truncation=True, padding= False,  max_length=5500).to(device)
@@ -102,9 +101,10 @@ def generate_summary(train_input, test_input):
     return summary 
 
 # Load dataset
+
 ds_train =  pd.read_csv("/hpi/fs00/home/afsana.mimi/llama_project/synthetic_data/data1.csv")
 articles_train = ds_train['article']
-highlights_train = ds_train['highlight'] # in the demo data its writeen as highlight
+highlights_train = ds_train['highlight'] 
 
 ds = load_dataset("abisee/cnn_dailymail", "3.0.0", cache_dir="/hpi/fs00/home/afsana.mimi/llama_project/dataset")
 articles = ds['test']['article']
@@ -123,8 +123,18 @@ def manage_memory():
 # Create the folder for saving plots if it doesn't exist
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
-plots_dir = os.path.join(script_dir, 'experiment1_plots')
+plots_dir = os.path.join(script_dir, 'exp2_gpt_data') #chnage the name
 os.makedirs(plots_dir, exist_ok=True)
+
+#creating the csv file
+csv_file_path = os.path.join(script_dir, 'generated_summaries_exp2.csv') #chnage the name
+
+# Check if the file exists, if not, create the header
+if not os.path.exists(csv_file_path):
+    with open(csv_file_path, mode='w', newline='', encoding='utf-8') as file:
+        writer = csv.writer(file)
+        writer.writerow(['epoch', 'test_data', 'generated_summary'])  # Header row
+
 
 # Initialize lists to store precision scores for each epoch
 rouge1_precision_scores = []
@@ -136,7 +146,7 @@ avg_rouge1_precision = []
 avg_rouge2_precision = []
 avg_rougeL_precision = []
 # -----------------------------------------
-epochs = 10   ###chnaged from 10
+epochs = 10    ###chnaged from 10
 for epoch in range(1, epochs + 1):
     print()
     print(f"Epoch {epoch}")
@@ -156,14 +166,23 @@ for epoch in range(1, epochs + 1):
     temp_rouge1_precision = []
     temp_rouge2_precision = []
     temp_rougeL_precision = []
+    data = []
      # Generate summaries for the first 50 test inputs
-    for i in range(300):  # Iterate through the first 50 examples (chnaged from 50)
+    for i in range(100):  # Iterate through the first 50 examples (chnaged from 50)
         test_input = articles[i]
         reference_summary = highlights[i]
         
         print(f"------------Summary {i+1} is generating by model-------------")
         summary = generate_summary(train_input, test_input)
         print(f"Generated Summary {i+1}:", summary)
+
+
+        # Save to CSV
+        with open(csv_file_path, mode='a', newline='', encoding='utf-8') as file:
+            writer = csv.writer(file)
+            writer.writerow([epoch, reference_summary, summary])  # Write epoch, test input, and summary
+
+
         
         # Calculate ROUGE score for the summary
         print(' -------------------')
@@ -197,12 +216,12 @@ for epoch in range(1, epochs + 1):
     plt.plot(x_values, temp_rougeL_precision, label='ROUGE-L Precision')
     plt.xlabel('Test Example')
     plt.ylabel('Rourge_Precision')
-    plt.title(f'Precision Scores for 300 Test Examples with {epoch} In-Context Example(s)')
+    plt.title(f'Precision Scores for 100 Test Examples with {epoch} In-Context Example(s)')
     plt.legend()
     
 
     # Set x-ticks to show every 2 test examples (from 1 to 50)
-    plt.xticks(np.arange(1, len(temp_rouge1_precision) + 1, 29)) 
+    plt.xticks(np.arange(1, len(temp_rouge1_precision) + 1, 10)) 
     # Save the plot
     plt.savefig(os.path.join(plots_dir, f'epoch_{epoch}_precision_scores.png'))
     plt.close()
