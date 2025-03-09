@@ -1,7 +1,7 @@
 ------------------- code setup :rocket:-----------------------------
 1. Code for experimenting with hugging face data : code/hugging_face_data_experiment.py
 2. Code for experimenting with new synthetic generated data Gpt : code/Gpt_data_experiment.py
-3. Code for experimenting with new synthetic generated data using Deepseek: 
+3. Code for experimenting with new synthetic generated data using Deepseek: code/deep_seek_data_experiment.py
 4. Code for experimenting with hugging face data but only 1 example: code/memory_eff_backup.py
 5. In the cloud setup the model and the weights were downloaded and they were being used from the chache dir.
 
