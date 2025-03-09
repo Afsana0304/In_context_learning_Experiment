@@ -35,7 +35,8 @@ for accessing gx01-gx05 use: salloc -A demelo -p sorcery --gres=gpu:a100:1 --mem
 ------------------------ slurm file output :rocket: ----------------------
 
 For each experiment, there is a corresponding SLURM output file. These files contain detailed logs for every test example processed, including the generated summary and its ROUGE score against the ground truth. This information is valuable for reviewing the quality of the generated summaries, identifying any potential issues, and troubleshooting areas that may require improvement. The SLURM output files are located in the "output of each experiment" folder
------------------------- Generated vs Ground Truth Summaries :rocket: ----------------------
+
+------------------------ Generated vs Ground Truth Summaries :fire: ----------------------
 
 In the reference_vs_generated_summary/ folder, the model-generated summaries and the corresponding ground truth summaries from the Hugging Face dataset are stored in a flexible CSV format. This format allows for easy inspection and comparison of the summaries.
 The following columns can be found in each CSV file:
