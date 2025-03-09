@@ -33,6 +33,7 @@ for accessing gx01-gx05 use: salloc -A demelo -p sorcery --gres=gpu:a100:1 --mem
 4. scancel -u <job_id> (cancels only a particular job)
 
 ------------------------ slurm file output :rocket: ----------------------
+
 For each experiment, there is a corresponding SLURM output file. These files contain detailed logs for every test example processed, including the generated summary and its ROUGE score against the ground truth. This information is valuable for reviewing the quality of the generated summaries, identifying any potential issues, and troubleshooting areas that may require improvement. The SLURM output files are located in the "output of each experiment" folder
 
 
