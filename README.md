@@ -6,7 +6,7 @@
 5. In the cloud setup the model and the weights were downloaded and they were being used from the chache dir.
 
 
--------------------------- plots :rocket:-------------------------
+-------------------------- Dataset :rocket:-------------------------
 1. For experiment 1 the data was taken from this hugging face directory: https://huggingface.co/datasets/abisee/cnn_dailymail
 2. For Experiments 2 and 3, the synthetic data used is stored in the synthetic_data folder. The datasets are available in CSV format: data1.csv contains the GPT-generated data, and data2.csv contains the DeepSeek-generated data.
 
@@ -31,6 +31,11 @@ for accessing gx01-gx05 use: salloc -A demelo -p sorcery --gres=gpu:a100:1 --mem
 2. scontrol show job <job_id> (shows more details including when the submitted slurm file will start running)
 3. scancel -u afsana.mimi (cancels all the jobs at once running under the user name)
 4. scancel -u <job_id> (cancels only a particular job)
+
+------------------------ slurm file output :rocket: ----------------------
+For each experiment, there is a corresponding SLURM output file. These files contain detailed logs for every test example processed, including the generated summary and its ROUGE score against the ground truth. This information is valuable for reviewing the quality of the generated summaries, identifying any potential issues, and troubleshooting areas that may require improvement. The SLURM output files are located in the "output of each experiment" folder
+
+
 
 ------------------ Environment creatrion :fire: --------------------
 1. use python3 -m venv icl for creating a new envrionment called icl
