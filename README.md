@@ -7,10 +7,10 @@
 
 
 -------------------------- plots :rocket:-------------------------
-1. The result for the experimenting with hugging faces 300 data is available on: new_sbatch_plots 
+1. The result for the experimenting with hugging faces 100 data is available on: Plots of all Experiment 
 
-(epoch_i_precision_scores.png = for i incontext example how the rouge score precision is changing for the 300 test data(from hugging face) 
-(average rouge_scores vs the number of examples.png = Our final result :star: After increasing the number of incontext example how the average rouge precesion score of the 300 test data is chnaging)
+(epoch_i_precision_scores.png = for i incontext example how the rouge score precision is changing for the 100 test data(from hugging face) 
+(average rouge_scores vs the number of examples.png = Our final result :star: After increasing the number of incontext example how the average rouge precesion score of the 100 test data is chnaging)
 
 ------------------------ slurm file :rocket: ----------------------
 
