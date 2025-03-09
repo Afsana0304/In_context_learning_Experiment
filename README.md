@@ -7,6 +7,10 @@
 
 
 -------------------------- plots :rocket:-------------------------
+1. For experiment 1 the data was taken from this hugging face directory: https://huggingface.co/datasets/abisee/cnn_dailymail
+2. For Experiments 2 and 3, the synthetic data used is stored in the synthetic_data folder. The datasets are available in CSV format: data1.csv contains the GPT-generated data, and data2.csv contains the DeepSeek-generated data.
+
+-------------------------- plots :rocket:-------------------------
 1. The result for the experimenting with hugging faces 100 data is available on: Plots of all Experiment 
 
 (epoch_i_precision_scores.png = for i incontext example how the rouge score precision is changing for the 100 test data(from hugging face) 
