@@ -14,7 +14,7 @@
 
 ------------------------ slurm file :rocket: ----------------------
 
-submit_job.sh has the all necessary setup to put a job in the cloud. The runtime is set to 32h and 40Gb GPU memory is being requested.
+submit_job.sh has the all necessary setup to put a job in the cloud. The runtime is set to 11h and 40Gb GPU memory is being requested.
 
 Note: For interactive job (For debugging purpose)
 Use salloc command:
