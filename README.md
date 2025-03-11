@@ -56,6 +56,7 @@ Ground Truth Summary: The reference summary from the Hugging Face dataset, used 
 
 
 ------------------ Progress in the Future work direction :fire: --------------------
+
 In 'synthetic_data_code_generation' folder, we implement an improved synthetic data generation technique with a clear directive: the prompt must be exactly 50 words. This constraint aligns with our test dataset, where summaries are also 50 words long. By enforcing this, we aim to minimize bias between the generated summaries and the ground truth summaries.
 
    
